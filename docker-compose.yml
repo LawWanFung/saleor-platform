@@ -18,6 +18,7 @@ services:
     env_file:
       - common.env
       - backend.env
+      - path: .env
     environment:
       - DASHBOARD_URL=http://localhost:9000/
       - ALLOWED_HOSTS=localhost,api
