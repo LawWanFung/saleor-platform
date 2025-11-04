@@ -19,8 +19,7 @@ services:
     env_file:
       - common.env
       - backend.env
-      path:
-        - .env
+      - .env
       
   dashboard:
     image: ghcr.io/saleor/saleor-dashboard:latest
