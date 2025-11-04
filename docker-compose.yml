@@ -5,7 +5,8 @@ services:
       - 8000:8000
     restart: unless-stopped
     networks:
-      - saleor-backend-tier
+      # - saleor-backend-tier
+      - dokploy-network
     stdin_open: true
     tty: true
     depends_on:
@@ -31,7 +32,8 @@ services:
       - 5432:5432
     restart: unless-stopped
     networks:
-      - saleor-backend-tier
+      # - saleor-backend-tier
+      - dokploy-network
     volumes:
       - saleor-db:/var/lib/postgresql/data
       - ./replica_user.sql:/docker-entrypoint-initdb.d/replica_user.sql:ro,z
@@ -45,7 +47,8 @@ services:
       - 6379:6379
     restart: unless-stopped
     networks:
-      - saleor-backend-tier
+      # - saleor-backend-tier
+      - dokploy-network
     volumes:
       - saleor-redis:/data
 
@@ -54,7 +57,8 @@ services:
     command: celery -A saleor --app=saleor.celeryconf:app worker --loglevel=info -B
     restart: unless-stopped
     networks:
-      - saleor-backend-tier
+      # - saleor-backend-tier
+      - dokploy-network
     env_file:
       - common.env
       - backend.env
@@ -73,7 +77,8 @@ services:
       - "4318:4318"
     restart: unless-stopped
     networks:
-      - saleor-backend-tier
+      # - saleor-backend-tier
+      - dokploy-network
     volumes:
       - type: tmpfs
         target: /tmp
@@ -85,7 +90,8 @@ services:
       - 8025:8025 # web ui. Visit http://localhost:8025/ to check emails
     restart: unless-stopped
     networks:
-      - saleor-backend-tier
+      # - saleor-backend-tier
+      - dokploy-network
 
 volumes:
   saleor-db:
@@ -95,5 +101,7 @@ volumes:
   saleor-media:
 
 networks:
-  saleor-backend-tier:
-    driver: bridge
+  # saleor-backend-tier:
+    # driver: bridge
+  dokploy-network:
+    external: true # Indicates that this network is managed externally by Dokploy
