@@ -15,8 +15,6 @@ services:
     volumes:
       # shared volume between worker and api for media
       - saleor-media:/app/media
-    env_file:
-      - path: .env
     environment:
       - DASHBOARD_URL=http://localhost:9000/
       - ALLOWED_HOSTS=${ALLOWED_HOSTS}
