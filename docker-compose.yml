@@ -18,7 +18,7 @@ services:
       - saleor-media:/app/media
     environment:
       - DASHBOARD_URL=http://localhost:9000/
-      - ALLOWED_HOSTS=${{environment.ALLOWED_HOSTS}}
+      - ALLOWED_HOSTS=${{ALLOWED_HOSTS}}
 
   dashboard:
     image: ghcr.io/saleor/saleor-dashboard:latest
