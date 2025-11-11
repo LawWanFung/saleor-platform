@@ -16,6 +16,8 @@ services:
     volumes:
       # shared volume between worker and api for media
       - saleor-media:/app/media
+    environment:
+      - API_URL=https://api.shopinsta.io/graphql/
     env_file:
       - common.env
       - backend.env
@@ -32,6 +34,8 @@ services:
     ports:
       - 9000:80
     restart: unless-stopped
+    environment:
+      - API_URL=https://api.shopinsta.io/graphql/
     networks:
       - dokploy-network   
     labels:
