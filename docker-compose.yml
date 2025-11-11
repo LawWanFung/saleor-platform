@@ -18,6 +18,7 @@ services:
       - saleor-media:/app/media
     environment:
       - API_URL=https://api.shopinsta.io/graphql/
+      - VITE_API_URL=https://api.shopinsta.io/graphql/
     env_file:
       - common.env
       - backend.env
