@@ -19,8 +19,8 @@ services:
     environment:
       - API_URL=https://api.shopinsta.io/graphql/
       - CORS_ALLOWED_ORIGINS=https://dashboard.shopinsta.io
-      - ALLOWED_API_ORIGINS=shopinsta.io,api.shopinsta.io,dashboard.shopinsta.io
-      - ALLOWED_CORS_ORIGINS=shopinsta.io, api.shopinsta.io,dashboard.shopinsta.io
+      - ALLOWED_API_ORIGINS=https://shopinsta.io,https://api.shopinsta.io,https://dashboard.shopinsta.io
+      - ALLOWED_CORS_ORIGINS=https://shopinsta.io,https://api.shopinsta.io,https://dashboard.shopinsta.io
     env_file:
       - common.env
       - backend.env
@@ -40,8 +40,8 @@ services:
     environment:
       - API_URL=https://api.shopinsta.io/graphql/
       - CORS_ALLOWED_ORIGINS=https://dashboard.shopinsta.io
-      - ALLOWED_API_ORIGINS=shopinsta.io,api.shopinsta.io,dashboard.shopinsta.io
-      - ALLOWED_CORS_ORIGINS=shopinsta.io, api.shopinsta.io,dashboard.shopinsta.io
+      - ALLOWED_API_ORIGINS=https://shopinsta.io,https://api.shopinsta.io,https://dashboard.shopinsta.io
+      - ALLOWED_CORS_ORIGINS=https://shopinsta.io,https://api.shopinsta.io,https://dashboard.shopinsta.io
     networks:
       - dokploy-network   
     labels:
