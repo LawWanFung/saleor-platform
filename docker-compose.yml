@@ -1,6 +1,6 @@
 services:
   api:
-    image: ghcr.io/saleor/saleor:3.22
+    image: ghcr.io/saleor/saleor:latest
     ports:
       - 8000:8000
     restart: unless-stopped
