@@ -18,6 +18,9 @@ services:
       - saleor-media:/app/media
     environment:
       - API_URL=https://api.shopinsta.io/graphql/
+      - CORS_ALLOWED_ORIGINS=https://dashboard.shopinsta.io
+      - ALLOWED_API_ORIGINS=shopinsta.io,api.shopinsta.io,dashboard.shopinsta.io
+      - ALLOWED_CORS_ORIGINS=shopinsta.io, api.shopinsta.io,dashboard.shopinsta.io
     env_file:
       - common.env
       - backend.env
@@ -36,6 +39,9 @@ services:
     restart: unless-stopped
     environment:
       - API_URL=https://api.shopinsta.io/graphql/
+      - CORS_ALLOWED_ORIGINS=https://dashboard.shopinsta.io
+      - ALLOWED_API_ORIGINS=shopinsta.io,api.shopinsta.io,dashboard.shopinsta.io
+      - ALLOWED_CORS_ORIGINS=shopinsta.io, api.shopinsta.io,dashboard.shopinsta.io
     networks:
       - dokploy-network   
     labels:
