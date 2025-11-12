@@ -25,6 +25,7 @@ services:
       - ALLOWED_GRAPHQL_ORIGINS=https://dashboard.shopinsta.io/
       - CORS_ALLOWED_ORIGINS=https://dashboard.shopinsta.io
       - DASHBOARD_URL=https://dashboard.shopinsta.io
+      - SECURE_PROXY_SSL_HEADER=HTTP_X_FORWARDED_PROTO,https
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.api.rule=Host(`api.shopinsta.io`)"
