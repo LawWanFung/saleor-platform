@@ -18,7 +18,7 @@ services:
       - saleor-media:/app/media
     environment:
       - API_URL=https://api.shopinsta.io/graphql/
-      - ALLOWED_GRAPHQL_ORIGINS=https://dashboard.shopinsta.io
+      - ALLOWED_GRAPHQL_ORIGINS=https://dashboard.shopinsta.io/
     env_file:
       - common.env
       - backend.env
