@@ -33,12 +33,12 @@ services:
       # - "traefik.http.routers.saleor-api-manual.middlewares=saleor-https-header"
       # - "traefik.http.middlewares.saleor-https-header.headers.customresponseheaders.X-Forwarded-Proto=https"
       # - "traefik.http.services.saleor-api-manual.loadbalancer.server.port=8000"
-        - "traefik.http.routers.api-graphql.rule=Host(`api.shopinsta.io`) && PathPrefix(`/graphql`) && Method(`POST`, `OPTIONS`)"
-        - "traefik.http.routers.api-graphql.entrypoints=websecure"
-        - "traefik.http.routers.api-graphql.tls.certResolver=letsencrypt"
-        - "traefik.http.routers.api-graphql.middlewares=saleor-https-header"
-        - "traefik.http.routers.api-graphql.service=saleor-api-service" 
-        - "traefik.http.services.saleor-api-service.loadbalancer.server.port=8000"
+      - "traefik.http.routers.api-graphql.rule=Host(`api.shopinsta.io`) && PathPrefix(`/graphql`) && Method(`POST`, `OPTIONS`)"
+      - "traefik.http.routers.api-graphql.entrypoints=websecure"
+      - "traefik.http.routers.api-graphql.tls.certResolver=letsencrypt"
+      - "traefik.http.routers.api-graphql.middlewares=saleor-https-header"
+      - "traefik.http.routers.api-graphql.service=saleor-api-service" 
+      - "traefik.http.services.saleor-api-service.loadbalancer.server.port=8000"
     
   dashboard:
     image: ghcr.io/saleor/saleor-dashboard:latest
