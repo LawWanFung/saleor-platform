@@ -45,11 +45,9 @@ services:
       - dokploy-network   
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dashboard.rule=Host(`shopinsta.io`) && PathPrefix(`/dashboard/`)"
+      - "traefik.http.routers.dashboard.rule=Host(`dashboard.shopinsta.io`)
       - "traefik.http.routers.dashboard.entrypoints=websecure"
       - "traefik.http.routers.dashboard.tls.certResolver=letsencrypt"
-      - "traefik.http.routers.dashboard.middlewares=dashboard-stripprefix"
-      - "traefik.http.middlewares.dashboard-stripprefix.stripprefix.prefixes=/dashboard"
       - "traefik.http.services.dashboard.loadbalancer.server.port=9000"
   # db:
   #   image: library/postgres:15-alpine
