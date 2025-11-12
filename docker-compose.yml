@@ -45,7 +45,7 @@ services:
       - dokploy-network   
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dashboard.rule=Host(`dashboard.shopinsta.io`)"
+      - "traefik.http.routers.dashboard.rule=Host(`shopinsta.io`)"
       - "traefik.http.routers.dashboard.entrypoints=websecure"
       - "traefik.http.routers.dashboard.tls.certResolver=letsencrypt"
       - "traefik.http.services.dashboard.loadbalancer.server.port=9000"
