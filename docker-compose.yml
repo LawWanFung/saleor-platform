@@ -26,7 +26,15 @@ services:
       - CORS_ALLOWED_ORIGINS=https://dashboard.shopinsta.io
       - DASHBOARD_URL=https://dashboard.shopinsta.io
       - SECURE_PROXY_SSL_HEADER=HTTP_X_FORWARDED_PROTO,https
-      
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.saleor-api-manual.rule=Host(`api.shopinsta.io`)"
+      - "traefik.http.routers.saleor-api-manual.entrypoints=websecure"
+      - "traefik.http.routers.saleor-api-manual.tls.certResolver=letsencrypt"
+      - "traefik.http.routers.saleor-api-manual.middlewares=saleor-https-header"
+      - "traefik.http.middlewares.saleor-https-header.headers.customresponseheaders.X-Forwarded-Proto=https"
+      - "traefik.http.services.saleor-api-manual.loadbalancer.server.port=8000"
+    
   dashboard:
     image: ghcr.io/saleor/saleor-dashboard:latest
     ports:
@@ -40,6 +48,13 @@ services:
       - API_URL=https://api.shopinsta.io/graphql/
     networks:
       - dokploy-network   
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.saleor-dash-manual.rule=Host(`dashboard.shopinsta.io`)"
+      - "traefik.http.routers.saleor-dash-manual.entrypoints=websecure"
+      - "traefik.http.routers.saleor-dash-manual.tls.certResolver=letsencrypt"
+      - "traefik.http.routers.saleor-dash-manual.middlewares=saleor-https-header"
+      - "traefik.http.services.saleor-dash-manual.loadbalancer.server.port=9000"
   # db:
   #   image: library/postgres:15-alpine
   #   ports:
