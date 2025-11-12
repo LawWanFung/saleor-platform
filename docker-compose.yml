@@ -54,7 +54,7 @@ services:
       - "traefik.http.routers.saleor-dash-manual.entrypoints=websecure"
       - "traefik.http.routers.saleor-dash-manual.tls.certResolver=letsencrypt"
       - "traefik.http.routers.saleor-dash-manual.middlewares=saleor-https-header"
-      - "traefik.http.services.saleor-dash-manual.loadbalancer.server.port=9000"
+      - "traefik.http.services.saleor-dash-manual.loadbalancer.server.port=80"
   # db:
   #   image: library/postgres:15-alpine
   #   ports:
