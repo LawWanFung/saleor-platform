@@ -22,7 +22,7 @@ services:
       - .env
     environment:
       - API_URL=https://api.shopinsta.io/graphql/
-      - ALLOWED_GRAPHQL_ORIGINS=https://dashboard.shopinsta.io,,https://payment.shopinsta.io
+      - ALLOWED_GRAPHQL_ORIGINS=https://dashboard.shopinsta.io,https://payment.shopinsta.io
       - DASHBOARD_URL=https://dashboard.shopinsta.io/
       # - SECURE_PROXY_SSL_HEADER=HTTP_X_FORWARDED_PROTO,https
     # labels:
